@@ -14,3 +14,9 @@ class BoardgameService():
     
     def insert(self, boardgame_data):
         return self.db.insert(boardgame_data)
+
+    def patch(self, boardgame_data):
+        return self.db.update(boardgame_data)
+
+    def delete(self, id):
+        return self.db.delete(id)

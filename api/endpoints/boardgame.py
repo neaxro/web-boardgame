@@ -36,3 +36,29 @@ class Boardgame(Resource):
 
         except Exception as e:
             return {"error": "Something went wrong", "details": str(e)}, 500
+
+    @count_requests
+    @time_request
+    @latency_request
+    def patch(self):
+        try:
+            boardgame_data = request.get_json()
+
+            try:
+                affected_rows = self.bs.patch(boardgame_data)
+                return {"message": "Boardgame updated successfully", "affected_rows": affected_rows}, 201
+            except Exception as e:
+                return {"message": "Failed to create boardgame", "details": str(e)}, 500
+
+        except Exception as e:
+            return {"error": "Something went wrong", "details": str(e)}, 500
+
+    @count_requests
+    @time_request
+    @latency_request
+    def delete(self, id):
+        try:
+            affected_rows = self.bs.delete(id)
+            return {"message": "Boardgame deleted successfully", "affected_rows": affected_rows}, 200
+        except Exception as e:
+            return {"message": "Failed to delete boardgame", "details": str(e)}, 500

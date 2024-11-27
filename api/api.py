@@ -13,7 +13,7 @@ def build_app():
 
     api = Api(app)
     api.add_resource(Health, "/health", endpoint="health")
-    api.add_resource(Boardgame, "/boardgame", endpoint="boardgame")
+    api.add_resource(Boardgame, "/boardgame", "/boardgame/<int:id>", endpoint="boardgame")
 
     return app
 

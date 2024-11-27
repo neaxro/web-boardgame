@@ -41,11 +41,31 @@ class BoardgameDB:
         cursor = self.db.cursor()
         cursor.execute(
             """
-                INSERT INTO boardgame
-                (title, category, description, tags, min_players, max_players, best_players, min_age, avg_time, played_count) VALUES
-                (%(title)s, %(category)s, %(description)s, %(tags)s, %(min_players)s, %(max_players)s, %(best_players)s, %(min_age)s, %(avg_time)s, 0)
+            INSERT INTO boardgame
+            (title, category, description, tags, min_players, max_players, best_players, min_age, avg_time, played_count) VALUES
+            (%(title)s, %(category)s, %(description)s, %(tags)s, %(min_players)s, %(max_players)s, %(best_players)s, %(min_age)s, %(avg_time)s, 0)
             """,
             (boardgame_data)
         )
 
         return cursor.lastrowid
+    
+    def update(self, boardgame_data: dict):
+        cursor = self.db.cursor()
+        cursor.execute(
+            """
+            UPDATE boardgame
+            SET title=%(title)s, category=%(category)s, description=%(description)s,
+            tags=%(tags)s, min_players=%(min_players)s, max_players=%(max_players)s,
+            best_players=%(best_players)s, min_age=%(min_age)s, avg_time=%(avg_time)s,
+            played_count=%(played_count)s
+            WHERE id = %(id)s
+            """,
+            (boardgame_data)
+        )
+        return cursor.rowcount
+
+    def delete(self, id):
+        cursor = self.db.cursor()
+        cursor.execute("DELETE FROM boardgame WHERE id = %s", (id, ))
+        return cursor.rowcount
