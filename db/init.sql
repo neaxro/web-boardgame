@@ -13,7 +13,7 @@ CREATE TABLE boardgame(
     avg_time INT NOT NULL,
     played_count INT,
     PRIMARY KEY (id)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 INSERT INTO boardgame (title, category, description, tags, min_players, max_players, best_players, min_age, avg_time, played_count) VALUES
 ("Cash 'n' Guns", "party", "Néhány leírás", "fegyverek,party,western", 3, 8, 6, 10, 70, 12),
