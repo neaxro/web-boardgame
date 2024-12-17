@@ -12,6 +12,9 @@ class BoardgameService():
         else:
             return self.db.get_all()
     
+    def get(self, id):
+        return self.db.get_id(id)
+    
     def insert(self, boardgame_data):
         return self.db.insert(boardgame_data)
 

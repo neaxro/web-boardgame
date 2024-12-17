@@ -29,7 +29,7 @@ class BoardgameDB:
         cursor = self.db.cursor(dictionary=True)
         cursor.execute("SELECT * FROM boardgame WHERE id = %s", (id,))
         
-        return cursor.fetchall()
+        return cursor.fetchone()
     
     def get_title(self, title: str):
         cursor = self.db.cursor(dictionary=True)

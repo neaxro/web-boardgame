@@ -11,12 +11,15 @@ class Boardgame(Resource):
     @count_requests
     @time_request
     @latency_request
-    def get(self):
+    def get(self, id=None):
         try:
-            query_id = request.args.get("id")
-            query_title = request.args.get("title")
+            if id:
+                return self.bs.get(id), 200
+            else:
+                query_id = request.args.get("id")
+                query_title = request.args.get("title")
 
-            return self.bs.get_all(query_id, query_title), 200
+                return self.bs.get_all(query_id, query_title), 200
 
         except Exception as e:
             return {"error": "Something went wrong", "details": str(e)}, 500
