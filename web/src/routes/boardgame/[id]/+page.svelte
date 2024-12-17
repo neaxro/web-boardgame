@@ -8,9 +8,9 @@
 <div class="container mt-4">
     <h1 class="pb-4">{data.boardgame.title}</h1>
 
-    <div class="d-flex flex-row">
+    <div class="col-md-12 test-border">
         {#each data.boardgame.tags.split(',') as tag}
-            <h4><span class="badge bg-primary me-1">{ tag }</span></h4>
+            <span class="badge bg-primary m-1 fs-6">{ tag }</span>
         {/each}
     </div>
 
