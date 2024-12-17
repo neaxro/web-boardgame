@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="hu">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<link rel="icon" href="%sveltekit.assets%/icon.ico" />
 		<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
@@ -12,14 +12,15 @@
 			<div class="container-fluid col-md-6">
 				<a class="navbar-brand" href="/">
 					<img
-						src="https://cdn.thenewstack.io/media/2021/09/9969f494-sveltelogo-1024x576.png"
+						src="%sveltekit.assets%/icon.ico"
 						alt="Logo"
-						width="30"
-						height="24"
-						class="d-inline-block align-text-top"
+						width="60"
+						height=""
+						class="d-inline-block align-text-center me-2"
 					/>
 					Társasjátékok
 				</a>
+				<a class="btn btn-primary" href="/create" role="button">Add</a>
 				<button class="btn btn-primary" type="submit">Login</button>
 			</div>
 		</nav>
